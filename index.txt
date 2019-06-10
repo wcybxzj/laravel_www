@@ -11,9 +11,17 @@ php artisan key:generate
 vim config/app.php 
 chmod -R 777 storage/
 =======================================================================================
+laravel-swoole:
+cd laravel_www/
+cd laravel/
+composer require swooletw/laravel-swoole
+php artisan swoole:http start
+访问:http://127.0.0.1:1215
 
-
-
+php-pm:
+cd /root/www/laravel_www/laravel
+docker run -v `pwd`:/var/www -p 8080:80 phppm/nginx --bootstrap=laravel --static-directory=public/
+访问:http://127.0.0.1:8080
 
 http://php-pm.laravel.com/
 http://fpm.laravel.com/
