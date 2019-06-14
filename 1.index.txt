@@ -1,0 +1,45 @@
+1.安装
+去git laravel下个release
+=======================================================================================
+2.nginx配置
+=======================================================================================
+3.配置laravel
+cd laravel
+cp .env.example .env
+composer install
+php artisan key:generate
+vim config/app.php 
+chmod -R 777 storage/
+=======================================================================================
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+=======================================================================================
+php-pm 集成nginx:
+cd /root/www/laravel_www/laravel
+docker run -v `pwd`:/var/www -p 8080:80 phppm/nginx --bootstrap=laravel --static-directory=public/
+访问:http://127.0.0.1:8080
+=======================================================================================
+php-pm 单独启动:
+https://github.com/php-pm/php-pm-docker
+=======================================================================================
+laravel-swoole:
+cd laravel_www/
+cd laravel/
+composer require swooletw/laravel-swoole
+php artisan swoole:http start
+访问:http://127.0.0.1:1215
+=======================================================================================
+laravels:
+composer require "hhxsv5/laravel-s:~3.5.0" -vvv
+php artisan laravels publish
+vim config/laravels.php
+php bin/laravels start
+=======================================================================================
+http://php-pm.laravel.com/
+http://fpm.laravel.com/
+http://swoole.laravel.com/
+http://ls.laravel.com/
+=======================================================================================
+问题:
+Call to a member function requestIsConditional() on null
+=======================================================================================

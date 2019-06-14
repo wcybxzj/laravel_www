@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/post', function () {
+    //return view('welcome');
+    return 'post111';
+});
+
+Route::post('/home', function () {
+    //return view('welcome');
+    return 'home';
+});
