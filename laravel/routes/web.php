@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+	echo "welcome12345789";
     return view('welcome');
 });
 
@@ -20,7 +21,7 @@ Route::post('/post', function () {
     return 'post111';
 });
 
-Route::post('/home', function () {
-    //return view('welcome');
-    return 'home';
+Route::get('/home', function () {
+	echo "hhhhhhhhh";
+    return view('welcome');
 });

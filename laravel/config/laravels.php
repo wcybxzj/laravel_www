@@ -12,7 +12,7 @@ return [
     'handle_static'            => env('LARAVELS_HANDLE_STATIC', false),
     'laravel_base_path'        => env('LARAVEL_BASE_PATH', base_path()),
     'inotify_reload'           => [
-        'enable'        => env('LARAVELS_INOTIFY_RELOAD', false),
+        'enable'        => env('LARAVELS_INOTIFY_RELOAD', true),
         'watch_path'    => base_path(),
         'file_types'    => ['.php'],
         'excluded_dirs' => [],
@@ -52,10 +52,11 @@ return [
         // ...
     ],
     'swoole'                   => [
-        'daemonize'          => env('LARAVELS_DAEMONIZE', false),
+        'daemonize'          => env('LARAVELS_DAEMONIZE', true),
         'dispatch_mode'      => 2,
         'reactor_num'        => function_exists('swoole_cpu_num') ? swoole_cpu_num() * 2 : 4,
-        'worker_num'         => function_exists('swoole_cpu_num') ? swoole_cpu_num() * 2 : 8,
+        //'worker_num'         => function_exists('swoole_cpu_num') ? swoole_cpu_num() * 2 : 8,
+        'worker_num'         => 1,
         //'task_worker_num'    => function_exists('swoole_cpu_num') ? swoole_cpu_num() * 2 : 8,
         'task_ipc_mode'      => 1,
         'task_max_request'   => 8000,
@@ -70,7 +71,7 @@ return [
         'socket_buffer_size' => 128 * 1024 * 1024,
         'package_max_length' => 4 * 1024 * 1024,
         'reload_async'       => true,
-        'max_wait_time'      => 60,
+        'max_wait_time'      => 0,
         'enable_reuse_port'  => true,
         'enable_coroutine'   => false,
         'http_compression'   => false,
